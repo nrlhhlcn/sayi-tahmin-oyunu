@@ -1,0 +1,20 @@
+import random
+
+def Bul():
+    tahmin = random.randint(1, 101)
+    sayi = int(input("Bir sayi giriniz:"))
+    sayac = 1
+    while(True):
+        if sayi==tahmin:
+             print(f"Tebrikler {sayac} denemede sayiyi doğru bildiniz")
+             break
+        elif sayi>tahmin:
+
+            sayi=int(input("Daha kucuk bir sayi giriniz:"))
+            sayac+=1
+
+        elif sayi<tahmin:
+            sayi=int(input("Daha büyük bir sayi giriniz:"))
+            sayac+=1
+
+Bul()
