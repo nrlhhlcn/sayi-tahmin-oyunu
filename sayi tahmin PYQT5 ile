@@ -1,70 +1,82 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets,QtCore
 import sys
 import random
 import time
-
-
 class Pencere(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.olustur()
 
     def olustur(self):
-        self.tahmin = random.randint(1, 101)
+        self.setWindowTitle("SAYI TAHMİN OYUNU")
+        self.tahmin=random.randint(1,100)
+        self.setFixedSize(300,300)
         print(self.tahmin)
         self.sayac = 1
-        self.yazi = QtWidgets.QLabel(self)
-        self.label = QtWidgets.QLabel(self)
+        self.yazi=QtWidgets.QLabel(self)
+        self.label=QtWidgets.QLabel(self)
         self.label.setText("Bir sayi giriniz\t\t\t\t")
-        self.yazi.setGeometry(0, 15, 300, 30)
-        self.butun = QtWidgets.QPushButton(self)
+        self.yazi.setGeometry(0,15,300,30)
+        self.butun=QtWidgets.QPushButton(self)
         self.butun.setText("1")
-        self.butun.setGeometry(0, 80, 80, 30)
+        self.butun.setGeometry(0,80,80,30)
+        self.butun.setStyleSheet("background-color:blue;")
 
-        self.buton1 = QtWidgets.QPushButton(self)
+        self.buton1=QtWidgets.QPushButton(self)
         self.buton1.setText("2")
-        self.buton1.setGeometry(90, 80, 80, 30)
+        self.buton1.setGeometry(90,80,80,30)
+        self.buton1.setStyleSheet("background-color:blue;")
 
-        self.buton2 = QtWidgets.QPushButton(self)
+        self.buton2=QtWidgets.QPushButton(self)
         self.buton2.setText("3")
-        self.buton2.setGeometry(180, 80, 80, 30)
+        self.buton2.setGeometry(180,80,80,30)
         self.buton2.setStyleSheet("background-color:blue;")
 
-        self.buton3 = QtWidgets.QPushButton(self)
-        self.buton3.setGeometry(0, 120, 80, 30)
+        self.buton3=QtWidgets.QPushButton(self)
+        self.buton3.setGeometry(0,120,80,30)
         self.buton3.setText("4")
+        self.buton3.setStyleSheet("background-color:green;")
 
-        self.buton4 = QtWidgets.QPushButton(self)
-        self.buton4.setGeometry(90, 120, 80, 30)
+        self.buton4=QtWidgets.QPushButton(self)
+        self.buton4.setGeometry(90,120,80,30)
         self.buton4.setText("5")
+        self.buton4.setStyleSheet("background-color:green;")
 
-        self.buton5 = QtWidgets.QPushButton(self)
-        self.buton5.setGeometry(180, 120, 80, 30)
+        self.buton5=QtWidgets.QPushButton(self)
+        self.buton5.setGeometry(180,120,80,30)
         self.buton5.setText("6")
+        self.buton5.setStyleSheet("background-color:green;")
 
-        self.buton6 = QtWidgets.QPushButton(self)
-        self.buton6.setGeometry(0, 160, 80, 30)
+        self.buton6=QtWidgets.QPushButton(self)
+        self.buton6.setGeometry(0,160,80,30)
         self.buton6.setText("7")
+        self.buton6.setStyleSheet("background-color:yellow;")
 
-        self.buton7 = QtWidgets.QPushButton(self)
-        self.buton7.setGeometry(90, 160, 80, 30)
+
+        self.buton7=QtWidgets.QPushButton(self)
+        self.buton7.setGeometry(90,160,80,30)
         self.buton7.setText("8")
+        self.buton7.setStyleSheet("background-color:yellow;")
 
-        self.buton8 = QtWidgets.QPushButton(self)
-        self.buton8.setGeometry(180, 160, 80, 30)
+        self.buton8=QtWidgets.QPushButton(self)
+        self.buton8.setGeometry(180,160,80,30)
         self.buton8.setText("9")
+        self.buton8.setStyleSheet("background-color:yellow;")
 
-        self.buton9 = QtWidgets.QPushButton(self)
+        self.buton9=QtWidgets.QPushButton(self)
         self.buton9.setText("0")
-        self.buton9.setGeometry(90, 200, 80, 30)
+        self.buton9.setGeometry(90,200,80,30)
+        self.buton9.setStyleSheet("background-color:red;")
 
-        self.sil = QtWidgets.QPushButton(self)
-        self.sil.setGeometry(180, 40, 80, 30)
+        self.sil=QtWidgets.QPushButton(self)
+        self.sil.setGeometry(180,40,80,30)
         self.sil.setText("Sil")
+        self.sil.setStyleSheet("background-color:pink;")
 
-        self.gonder = QtWidgets.QPushButton(self)
-        self.gonder.setGeometry(180, 200, 80, 30)
+        self.gonder=QtWidgets.QPushButton(self)
+        self.gonder.setGeometry(180,200,80,30)
         self.gonder.setText("Gönder")
+
 
         self.butun.clicked.connect(self.tikla1)
         self.buton1.clicked.connect(self.tikla2)
@@ -79,17 +91,17 @@ class Pencere(QtWidgets.QWidget):
         self.sil.clicked.connect(self.Sil)
         self.gonder.clicked.connect(self.Gonder)
 
+
         self.show()
 
     def tikla1(self):
-        deger = self.yazi.text()
-        deger = deger + "1"
+        deger=self.yazi.text()
+        deger=deger+"1"
         self.yazi.setText(deger)
-
     def tikla2(self):
 
         deger = self.yazi.text()
-        deger = deger + "2"
+        deger=deger+"2"
         self.yazi.setText(deger)
 
     def tikla3(self):
@@ -101,7 +113,6 @@ class Pencere(QtWidgets.QWidget):
         deger = self.yazi.text()
         deger = deger + "4"
         self.yazi.setText(deger)
-
     def tikla5(self):
         deger = self.yazi.text()
         deger = deger + "5"
@@ -126,7 +137,6 @@ class Pencere(QtWidgets.QWidget):
         deger = self.yazi.text()
         deger = deger + "9"
         self.yazi.setText(deger)
-
     def tikla10(self):
         deger = self.yazi.text()
         deger = deger + "0"
@@ -134,42 +144,48 @@ class Pencere(QtWidgets.QWidget):
 
     def Sil(self):
         deger = self.yazi.text()
-        uzun = len(deger)
-        deger = deger[0:uzun - 1]
+        uzun=len(deger)
+        deger=deger[0:uzun-1]
 
         self.yazi.setText(deger)
 
     def Gonder(self):
         deger = self.yazi.text()
-        deger = int(deger)
+        deger=int(deger)
 
         self.bul(deger)
 
-    def bul(self, sayi):
+    def bul(self,sayi):
 
-        while (True):
-            if self.tahmin == sayi:
+        while(True):
+            if self.tahmin==sayi:
                 self.yazi.clear()
-                self.label.setText(f"Tebrikler {self.sayac} denemede sayıyı bildiniz")
-                self.yazi.setText("Oyun kapanıyor tekrar bekleriz.")
+                self.label.setText(f"Tebrikler {self.sayac} denemede sayıyı bildiniz👍👍\n")
+
                 self.label.setStyleSheet("background-color:red;")
+
+                self.yazi.setText("Oyun Kapanıyor yeniden bekleriz 😊")
 
                 self.timer = QtCore.QTimer()
                 self.timer.singleShot(3000, self.close)
+
                 break
-            elif sayi > self.tahmin:
+            elif sayi>self.tahmin:
                 self.yazi.clear()
-                self.label.setText("Lütfen daha küçük bir sayi giriniz:")
-                self.sayac += 1
+                self.label.setText("Lütfen daha küçük bir sayi giriniz:👇")
+                self.sayac+=1
                 break
 
-            elif sayi < self.tahmin:
+            elif sayi<self.tahmin:
                 self.yazi.clear()
-                self.label.setText("Lütfen daha büyük bir sayi giriniz:")
-                self.sayac += 1
+                self.label.setText("Lütfen daha büyük bir sayi giriniz👆:")
+                self.sayac+=1
+
                 break
 
 
-app = QtWidgets.QApplication(sys.argv)
-pencere = Pencere()
+
+
+app=QtWidgets.QApplication(sys.argv)
+pencere=Pencere()
 sys.exit(app.exec_())
