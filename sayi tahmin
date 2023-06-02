@@ -1,28 +1,175 @@
+from PyQt5 import QtWidgets, QtCore
+import sys
 import random
+import time
 
-def Bul():
-    tahmin = random.randint(1, 101)
-    sayi = int(input("Bir sayi giriniz:"))
-    sayac = 1
 
-    while(True):
-        if sayi==tahmin:
-             print(f"Tebrikler {sayac} denemede sayiyi doğru bildiniz")
-             devam_mi = input("Devam etmek istiyor musunuz:")
-             if devam_mi == "h" or devam_mi == "H":
-                 break
-             else:
-                 tahmin=random.randint(1,101)
-                 sayi = int(input("Bir sayi giriniz:"))
-                 sayac = 0
+class Pencere(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        self.olustur()
 
-        elif sayi>tahmin:
+    def olustur(self):
+        self.tahmin = random.randint(1, 101)
+        print(self.tahmin)
+        self.sayac = 1
+        self.yazi = QtWidgets.QLabel(self)
+        self.label = QtWidgets.QLabel(self)
+        self.label.setText("Bir sayi giriniz\t\t\t\t")
+        self.yazi.setGeometry(0, 15, 300, 30)
+        self.butun = QtWidgets.QPushButton(self)
+        self.butun.setText("1")
+        self.butun.setGeometry(0, 80, 80, 30)
 
-            sayi=int(input("Daha kucuk bir sayi giriniz:"))
-            sayac+=1
+        self.buton1 = QtWidgets.QPushButton(self)
+        self.buton1.setText("2")
+        self.buton1.setGeometry(90, 80, 80, 30)
 
-        elif sayi<tahmin:
-            sayi=int(input("Daha büyük bir sayi giriniz:"))
-            sayac+=1
+        self.buton2 = QtWidgets.QPushButton(self)
+        self.buton2.setText("3")
+        self.buton2.setGeometry(180, 80, 80, 30)
+        self.buton2.setStyleSheet("background-color:blue;")
 
-Bul()
+        self.buton3 = QtWidgets.QPushButton(self)
+        self.buton3.setGeometry(0, 120, 80, 30)
+        self.buton3.setText("4")
+
+        self.buton4 = QtWidgets.QPushButton(self)
+        self.buton4.setGeometry(90, 120, 80, 30)
+        self.buton4.setText("5")
+
+        self.buton5 = QtWidgets.QPushButton(self)
+        self.buton5.setGeometry(180, 120, 80, 30)
+        self.buton5.setText("6")
+
+        self.buton6 = QtWidgets.QPushButton(self)
+        self.buton6.setGeometry(0, 160, 80, 30)
+        self.buton6.setText("7")
+
+        self.buton7 = QtWidgets.QPushButton(self)
+        self.buton7.setGeometry(90, 160, 80, 30)
+        self.buton7.setText("8")
+
+        self.buton8 = QtWidgets.QPushButton(self)
+        self.buton8.setGeometry(180, 160, 80, 30)
+        self.buton8.setText("9")
+
+        self.buton9 = QtWidgets.QPushButton(self)
+        self.buton9.setText("0")
+        self.buton9.setGeometry(90, 200, 80, 30)
+
+        self.sil = QtWidgets.QPushButton(self)
+        self.sil.setGeometry(180, 40, 80, 30)
+        self.sil.setText("Sil")
+
+        self.gonder = QtWidgets.QPushButton(self)
+        self.gonder.setGeometry(180, 200, 80, 30)
+        self.gonder.setText("Gönder")
+
+        self.butun.clicked.connect(self.tikla1)
+        self.buton1.clicked.connect(self.tikla2)
+        self.buton2.clicked.connect(self.tikla3)
+        self.buton3.clicked.connect(self.tikla4)
+        self.buton4.clicked.connect(self.tikla5)
+        self.buton5.clicked.connect(self.tikla6)
+        self.buton6.clicked.connect(self.tikla7)
+        self.buton7.clicked.connect(self.tikla8)
+        self.buton8.clicked.connect(self.tikla9)
+        self.buton9.clicked.connect(self.tikla10)
+        self.sil.clicked.connect(self.Sil)
+        self.gonder.clicked.connect(self.Gonder)
+
+        self.show()
+
+    def tikla1(self):
+        deger = self.yazi.text()
+        deger = deger + "1"
+        self.yazi.setText(deger)
+
+    def tikla2(self):
+
+        deger = self.yazi.text()
+        deger = deger + "2"
+        self.yazi.setText(deger)
+
+    def tikla3(self):
+        deger = self.yazi.text()
+        deger = deger + "3"
+        self.yazi.setText(deger)
+
+    def tikla4(self):
+        deger = self.yazi.text()
+        deger = deger + "4"
+        self.yazi.setText(deger)
+
+    def tikla5(self):
+        deger = self.yazi.text()
+        deger = deger + "5"
+        self.yazi.setText(deger)
+
+    def tikla6(self):
+        deger = self.yazi.text()
+        deger = deger + "6"
+        self.yazi.setText(deger)
+
+    def tikla7(self):
+        deger = self.yazi.text()
+        deger = deger + "7"
+        self.yazi.setText(deger)
+
+    def tikla8(self):
+        deger = self.yazi.text()
+        deger = deger + "8"
+        self.yazi.setText(deger)
+
+    def tikla9(self):
+        deger = self.yazi.text()
+        deger = deger + "9"
+        self.yazi.setText(deger)
+
+    def tikla10(self):
+        deger = self.yazi.text()
+        deger = deger + "0"
+        self.yazi.setText(deger)
+
+    def Sil(self):
+        deger = self.yazi.text()
+        uzun = len(deger)
+        deger = deger[0:uzun - 1]
+
+        self.yazi.setText(deger)
+
+    def Gonder(self):
+        deger = self.yazi.text()
+        deger = int(deger)
+
+        self.bul(deger)
+
+    def bul(self, sayi):
+
+        while (True):
+            if self.tahmin == sayi:
+                self.yazi.clear()
+                self.label.setText(f"Tebrikler {self.sayac} denemede sayıyı bildiniz")
+                self.yazi.setText("Oyun kapanıyor tekrar bekleriz.")
+                self.label.setStyleSheet("background-color:red;")
+
+                self.timer = QtCore.QTimer()
+                self.timer.singleShot(3000, self.close)
+                break
+            elif sayi > self.tahmin:
+                self.yazi.clear()
+                self.label.setText("Lütfen daha küçük bir sayi giriniz:")
+                self.sayac += 1
+                break
+
+            elif sayi < self.tahmin:
+                self.yazi.clear()
+                self.label.setText("Lütfen daha büyük bir sayi giriniz:")
+                self.sayac += 1
+                break
+
+
+app = QtWidgets.QApplication(sys.argv)
+pencere = Pencere()
+sys.exit(app.exec_())
